@@ -1,6 +1,6 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://localhost:7000
 
 organization:
   name: My Company
@@ -17,15 +17,16 @@ backend:
   #     - secret: ${BACKEND_SECRET}
   baseUrl: http://localhost:7000
   listen:
-    port: 7007
+    port: 7000
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
   csp:
     connect-src: ["'self'", 'http:', 'https:']
+    upgrade-insecure-requests: false
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://localhost:3000
+    origin: http://localhost:7000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -74,7 +75,8 @@ auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
     # See https://backstage.io/docs/auth/guest/provider
-    guest: {}
+    guest:
+      dangerouslyAllowOutsideDevelopment: true
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -88,26 +90,26 @@ catalog:
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
-      target: ../../examples/entities.yaml
+      target: ./examples/entities.yaml
 
     # Local example template
     - type: file
-      target: ../../examples/template/template.yaml
+      target: ./examples/template/template.yaml
       rules:
         - allow: [Template]
 
     # Local example organizational data
     - type: file
-      target: ../../examples/org.yaml
+      target: ./examples/org.yaml
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+    # Uncomment these lines to add more example data
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
-    ## Uncomment these lines to add an example org
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-    #   rules:
-    #     - allow: [User, Group]
+    # Uncomment these lines to add an example org
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+      rules:
+        - allow: [User, Group]
