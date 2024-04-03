@@ -1,7 +1,8 @@
-# Backstage - (0) Provision Backstage 
 
+## How to provision backstage?
 
-## How to provision backstage
+In todays Backstage introduction workshop, we will provision, configure, and populate our newly created Backstage IDP (internal developer platform).
+First, we will follow the instructions below to provision our first Backstage instance.
 
 To install a fresh backstage latest version on local environemnt, run the following command:
 
@@ -9,10 +10,20 @@ To install a fresh backstage latest version on local environemnt, run the follow
   npx @backstage/create-app@latest
 ```
 
+Next, if the command above is failing due to dependencies issues, make sure that your node version is above 18 and node-gyp is installed and configured in your system.
+
+Now, lets run the following commands and start our Backstage application:
+
 ```bash
   cd <backstage_project_dir>
   yarn install 
   yarn dev
+```
+
+Access Backstage by following the next address:
+
+```
+localhost:3000
 ```
 ---
 
@@ -25,7 +36,7 @@ In addition to the Backstage latest version source code, in the following direct
 
 ```Dockerfile``` - For building the Backstage project as a Docker image.
 
-In our short Q-Day workshop, we will deploy and use Backstage in a Kubernetes cluster. 
+These instructions are for deploying Backstage in a Kubernetes cluster. 
 
 ---
 

@@ -72,8 +72,13 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
+  Environment: production
   # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
+    github:
+      production:
+        clientId: 'Iv1.2d997deff3dda494'
+        clientSecret: 'd18d4ea990b3af7e698ced9ecd875f5afe5610c5'
     # See https://backstage.io/docs/auth/guest/provider
     guest:
       dangerouslyAllowOutsideDevelopment: true
