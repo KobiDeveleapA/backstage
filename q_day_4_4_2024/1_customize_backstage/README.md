@@ -29,7 +29,7 @@ Inside the directory, we can find two files:
 Let's modify our ```LogoFull.tsx``` file:
 
 ```bash
-Import CustomizedLogo from './<customized_icon_path.jpg';
+import CustomizedLogo from './<customized_icon_path.jpg';
 .
 .
 .
@@ -52,10 +52,10 @@ Navigate to the following file:
 Let's import some essential requirments:
 
 ```
-import { themes } from '@backstage/theme'; # default Backstage themes (light and dark)
-import { UnifiedThemeProvider } from '@backstage/theme'; # essential library for adding customized themes
-import LightIcon from '@material-ui/icons/WbSunny'; # demo icon 
-import { multicolorTheme } from './theme/multicolorTheme'; # our customized theme
+import { themes } from '@backstage/theme'; 
+import { UnifiedThemeProvider } from '@backstage/theme';
+import LightIcon from '@material-ui/icons/WbSunny'; 
+import { multicolorTheme } from './themes/multicolorTheme';
 ```
 
 Next, let's add the references for our different themes to the Backstage frontend application:
